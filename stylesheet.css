@@ -162,14 +162,30 @@ header {
     font-size: 18px;
 }
 
-#main table tbody button {
-    border: 0;
-    line-height: 2.5;
-    padding: 0 20px;
-    font-size: 1rem;
+#main table tbody .Stock {
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+.quantite-commandee {
+    display: inline-block;
+    width: 80px;
+    height: 20px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
     text-align: center;
-    border-radius: 10px;
+    line-height: 20px;
+}
+
+#main table tbody button {
+    height: 25px;
+    width: 20px;
+    border: 1px solid black;
     background-color: #FFF;
+    border-radius: 5px;
+    font-size: 15px;
+    text-align: center;
 }
  
 footer {

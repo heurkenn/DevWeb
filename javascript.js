@@ -28,41 +28,39 @@ function toggleStock() {
 function ajouterQuantite(button) {
     var row = button.parentNode.parentNode;
     var quantiteSpan = row.querySelector('.quantite-commandee');
-    var stock = parseInt(row.querySelector('.stock').textContent);
+    var stock = parseInt(row.querySelector('.Stock').textContent);
     var quantiteCommandee = parseInt(quantiteSpan.textContent);
     
     if (quantiteCommandee < stock) {
         quantiteSpan.textContent = quantiteCommandee + 1;
     }
 
-    // Activer le bouton "-" si la quantité commandée est supérieure à zéro
-    if (quantiteCommandee > 0) {
-        row.querySelector('.bouton-moins').disabled = false;
-    }
-
     // Désactiver le bouton "+" si la quantité commandée atteint le stock
     if (quantiteCommandee + 1 >= stock) {
         button.disabled = true;
     }
+
+    // Réactiver le bouton "-" si la quantité commandée est supérieure à zéro
+    row.querySelector('.bouton-moins').disabled = false;
 }
 
 function diminuerQuantite(button) {
     var row = button.parentNode.parentNode;
     var quantiteSpan = row.querySelector('.quantite-commandee');
-    var stock = parseInt(row.querySelector('.stock').textContent);
+    var stock = parseInt(row.querySelector('.Stock').textContent);
     var quantiteCommandee = parseInt(quantiteSpan.textContent);
     
     if (quantiteCommandee > 0) {
         quantiteSpan.textContent = quantiteCommandee - 1;
     }
 
-    // Activer le bouton "+" si la quantité commandée est inférieure au stock
-    if (quantiteCommandee - 1 < stock) {
-        row.querySelector('.bouton-plus').disabled = false;
-    }
-
     // Désactiver le bouton "-" si la quantité commandée atteint zéro
     if (quantiteCommandee - 1 === 0) {
         button.disabled = true;
+    }
+
+    // Réactiver le bouton "+" si la quantité commandée est inférieure au stock
+    if (quantiteCommandee < stock) {
+        row.querySelector('.bouton-plus').disabled = false;
     }
 }
